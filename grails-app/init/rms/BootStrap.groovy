@@ -19,9 +19,9 @@ class BootStrap {
 
     private void loadPriorities() {
         ArrayList<Priority> priorities = [
-                new Priority(level: "Alta"),
-                new Priority(level: "Média"),
-                new Priority(level: "Baixa")
+                new Priority(level: "Alta", color: "#F08080"),
+                new Priority(level: "Média", color: "#FFFF00"),
+                new Priority(level: "Baixa", color: "#89CFF0")
         ]
         priorities.forEach {Priority priority ->
             priorityService.save(priority)

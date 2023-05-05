@@ -1,3 +1,4 @@
+<%@ page import="rms.Requirement" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,8 +24,29 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:table collection="${requirementList}" />
-
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>>Code</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Origin</th>
+                            <th>Priority</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <g:each in="${requirementList as ArrayList<Requirement>}" var="requirement">
+                        <tr>
+                            <td><a href="show/${requirement.id}">${requirement.code}</a></td>
+                            <td>${requirement.title}</td>
+                            <td>${requirement.type}</td>
+                            <td>${requirement.origin}</td>
+                            <td style="background: ${requirement.priority.color}">${requirement.priority}</td>
+                        </tr>
+                        </g:each>
+                        <!-- additional rows for each object in the "requirementList" collection -->
+                        </tbody>
+                    </table>
                     <g:if test="${requirementCount > params.int('max')}">
                     <div class="pagination">
                         <g:paginate total="${requirementCount ?: 0}" />
