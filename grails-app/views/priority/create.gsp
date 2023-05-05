@@ -1,3 +1,4 @@
+<%@ taglib prefix="input" uri="/input" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,7 +33,11 @@
                     </g:hasErrors>
                     <g:form resource="${this.priority}" method="POST">
                         <fieldset class="form">
-                            <f:all bean="priority"/>
+                            <f:all bean="priority" except="color"/>
+                            <div class="fieldcontain">
+                                <label>Color:</label>
+                                <color:color name="color" value="${priority.color}" />
+                            </div>
                         </fieldset>
                         <fieldset class="buttons">
                             <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
