@@ -1,3 +1,4 @@
+<%@ page import="rms.Priority" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +24,23 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:table collection="${priorityList}" />
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <g:sortableColumn property="level" title="Level" />
+                            <g:sortableColumn property="color" title="Color" />
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <g:each in="${priorityList as ArrayList<Priority>}" var="priority">
+                            <tr>
+                                <td><a href="show/${priority.id}">${priority.level}</a></td>
+                                <td style="background: ${priority.color}">${priority.color}</td>
+                            </tr>
+                        </g:each>
+                        <!-- additional rows for each object in the "priorityList" collection -->
+                        </tbody>
+                    </table>
 
                     <g:if test="${priorityCount > params.int('max')}">
                     <div class="pagination">
