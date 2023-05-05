@@ -12,7 +12,12 @@ class RequirementController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond requirementService.list(params), model:[requirementCount: requirementService.count()]
+        respond requirementService.list(params), model:[
+                requirementCount: requirementService.count(),
+                requirementTypeList: RequirementType.list(),
+                requirementOriginList: RequirementOrigin.list(),
+                priorityList: Priority.list()
+        ]
     }
 
     def show(Long id) {
