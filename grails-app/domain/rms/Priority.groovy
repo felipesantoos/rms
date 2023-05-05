@@ -6,4 +6,9 @@ class Priority {
     static constraints = {
         level unique: true
     }
+
+    @Override
+    String toString() {
+        return level
+    }
 }

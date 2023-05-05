@@ -20,4 +20,9 @@ class Requirement {
         origin nullable: true
         priority nullable: true
     }
+
+    @Override
+    String toString() {
+        return code
+    }
 }

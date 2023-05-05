@@ -12,4 +12,9 @@ class Project {
         description nullable: true
         isActive inList: [true, false]
     }
+
+    @Override
+    String toString() {
+        return name
+    }
 }

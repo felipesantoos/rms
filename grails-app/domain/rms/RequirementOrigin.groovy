@@ -6,4 +6,9 @@ class RequirementOrigin {
     static constraints = {
         name unique: true
     }
+
+    @Override
+    String toString() {
+        return name
+    }
 }
