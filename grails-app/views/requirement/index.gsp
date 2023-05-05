@@ -42,7 +42,11 @@
                             <td>${requirement.title}</td>
                             <td>${requirement.type}</td>
                             <td>${requirement.origin}</td>
-                            <td style="background: ${requirement.priority.color}">${requirement.priority}</td>
+                            <td>
+                                <span style="background: ${requirement.priority.color}; display: inline-block; border-radius: 2px; padding: 0 4px;">
+                                    ${requirement.priority.level}
+                                </span>
+                            </td>
                         </tr>
                         </g:each>
                         <!-- additional rows for each object in the "requirementList" collection -->

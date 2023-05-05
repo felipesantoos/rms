@@ -35,7 +35,11 @@
                         <g:each in="${priorityList as ArrayList<Priority>}" var="priority">
                             <tr>
                                 <td><a href="show/${priority.id}">${priority.level}</a></td>
-                                <td style="background: ${priority.color}">${priority.color}</td>
+                                <td>
+                                    <span style="background: ${priority.color}; display: inline-block; border-radius: 2px; padding: 0 4px;">
+                                        ${priority.color}
+                                    </span>
+                                </td>
                             </tr>
                         </g:each>
                         <!-- additional rows for each object in the "priorityList" collection -->

@@ -33,8 +33,10 @@
 
                         <li class="fieldcontain">
                             <span id="color-label" class="property-label">Color</span>
-                            <div class="property-value" aria-labelledby="color-label" style="background: ${priority.color}">
-                                ${priority.color}
+                            <div class="property-value" aria-labelledby="color-label">
+                                <span style="background: ${priority.color}; display: inline-block; border-radius: 2px; padding: 0 4px;">
+                                    ${priority.color}
+                                </span>
                             </div>
                         </li>
 
