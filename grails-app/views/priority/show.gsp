@@ -24,7 +24,21 @@
                     <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:display bean="priority" />
+                    <ol class="property-list priority">
+
+                        <li class="fieldcontain">
+                            <span id="level-label" class="property-label">Level</span>
+                            <div class="property-value" aria-labelledby="level-label">${priority.level}</div>
+                        </li>
+
+                        <li class="fieldcontain">
+                            <span id="color-label" class="property-label">Color</span>
+                            <div class="property-value" aria-labelledby="color-label" style="background: ${priority.color}">
+                                ${priority.color}
+                            </div>
+                        </li>
+
+                    </ol>
                     <g:form resource="${this.priority}" method="DELETE">
                         <fieldset class="buttons">
                             <g:link class="edit" action="edit" resource="${this.priority}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

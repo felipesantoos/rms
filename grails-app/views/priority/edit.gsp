@@ -4,6 +4,11 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'priority.label', default: 'Priority')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <script>
+            function updateColorText(color) {
+                document.getElementById("color-text").value = color;
+            }
+        </script>
     </head>
     <body>
     <div id="content" role="main">
@@ -34,7 +39,12 @@
                     <g:form resource="${this.priority}" method="PUT">
                         <g:hiddenField name="version" value="${this.priority?.version}" />
                         <fieldset class="form">
-                            <f:all bean="priority"/>
+                            <f:all bean="priority" except="color"/>
+                            <div class="fieldcontain">
+                                <label for="color">Color:</label>
+                                <color:color name="color" value="${priority.color}" id="color" onChange="updateColorText(this.value)" />
+                                <input name="color-text" type="text" value="${priority.color}" id="color-text" />
+                            </div>
                         </fieldset>
                         <fieldset class="buttons">
                             <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
