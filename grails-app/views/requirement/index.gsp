@@ -27,13 +27,14 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th>>Code</th>
-                            <th>Title</th>
-                            <th>Type</th>
-                            <th>Origin</th>
-                            <th>Priority</th>
+                            <g:sortableColumn property="code" title="Code" />
+                            <g:sortableColumn property="title" title="Title" />
+                            <g:sortableColumn property="type" title="Type" />
+                            <g:sortableColumn property="origin" title="Origin" />
+                            <g:sortableColumn property="priority" title="Priority" />
                         </tr>
                         </thead>
+
                         <tbody>
                         <g:each in="${requirementList as ArrayList<Requirement>}" var="requirement">
                         <tr>
