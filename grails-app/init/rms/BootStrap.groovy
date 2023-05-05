@@ -12,6 +12,7 @@ class BootStrap {
         loadProjects()
         loadRequirementOrigins()
         loadRequirementTypes()
+        loadRequirements()
     }
     def destroy = {
     }
@@ -57,6 +58,17 @@ class BootStrap {
         ]
         requirementTypes.forEach {RequirementType requirementType ->
             requirementTypeService.save(requirementType)
+        }
+    }
+
+    private void loadRequirements() {
+        ArrayList<Requirement> requirements = [
+                new Requirement(code: "P1-1", title: "Requirement 1", description: "Description 1", userStory: "As a... I want... so that... [1]", type: RequirementType.get(1), origin: RequirementOrigin.get(1), priority: Priority.get(1), project: Project.get(1)),
+                new Requirement(code: "P1-2", title: "Requirement 2", description: "Description 2", userStory: "As a... I want... so that... [2]", type: RequirementType.get(2), origin: RequirementOrigin.get(2), priority: Priority.get(2), project: Project.get(2)),
+                new Requirement(code: "P1-3", title: "Requirement 3", description: "Description 3", userStory: "As a... I want... so that... [3]", type: RequirementType.get(3), origin: RequirementOrigin.get(3), priority: Priority.get(3), project: Project.get(3))
+        ]
+        requirements.forEach {Requirement requirement ->
+            requirementService.save(requirement)
         }
     }
 }
