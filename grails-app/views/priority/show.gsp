@@ -25,12 +25,10 @@
                     <div class="message" role="status">${flash.message}</div>
                     </g:if>
                     <ol class="property-list priority">
-
                         <li class="fieldcontain">
                             <span id="level-label" class="property-label">Level</span>
                             <div class="property-value" aria-labelledby="level-label">${priority.level}</div>
                         </li>
-
                         <li class="fieldcontain">
                             <span id="color-label" class="property-label">Color</span>
                             <div class="property-value" aria-labelledby="color-label">
@@ -39,7 +37,6 @@
                                 </span>
                             </div>
                         </li>
-
                     </ol>
                     <g:form resource="${this.priority}" method="DELETE">
                         <fieldset class="buttons">

@@ -24,7 +24,7 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <table class="table">
+                    <table>
                         <thead>
                         <tr>
                             <g:sortableColumn property="level" title="Level" />
@@ -34,7 +34,11 @@
                         <tbody>
                         <g:each in="${priorityList as ArrayList<Priority>}" var="priority">
                             <tr>
-                                <td><a href="show/${priority.id}">${priority.level}</a></td>
+                                <td>
+                                    <g:link controller="priority" action="show" id="${priority.id}" class="no-underline">
+                                        ${priority.level}
+                                    </g:link>
+                                </td>
                                 <td>
                                     <span style="background: ${priority.color}; display: inline-block; border-radius: 2px; padding: 0 4px;">
                                         ${priority.color}

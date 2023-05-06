@@ -1,3 +1,4 @@
+<%@ page import="rms.RequirementType" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,8 +24,25 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:table collection="${requirementTypeList}" />
-
+                    <table>
+                        <thead>
+                        <tr>
+                            <g:sortableColumn property="name" title="Name" />
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <g:each in="${requirementTypeList as ArrayList<RequirementType>}" var="requirementType">
+                            <tr>
+                                <td>
+                                    <g:link controller="requirementType" action="show" id="${requirementType.id}" class="no-underline">
+                                        ${requirementType.name}
+                                    </g:link>
+                                </td>
+                            </tr>
+                        </g:each>
+                        <!-- additional rows for each object in the "requirementTypeList" collection -->
+                        </tbody>
+                    </table>
                     <g:if test="${requirementTypeCount > params.int('max')}">
                     <div class="pagination">
                         <g:paginate total="${requirementTypeCount ?: 0}" />

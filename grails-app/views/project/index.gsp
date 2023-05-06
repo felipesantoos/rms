@@ -1,3 +1,4 @@
+<%@ page import="rms.Project" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,8 +24,29 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:table collection="${projectList}" />
-
+                    <table>
+                        <thead>
+                        <tr>
+                            <g:sortableColumn property="name" title="Name" />
+                            <g:sortableColumn property="alias" title="Alias" />
+                            <g:sortableColumn property="description" title="Description" />
+                            <g:sortableColumn property="isActive" title="Is Active" />
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <g:each in="${projectList as ArrayList<Project>}" var="project">
+                            <tr>
+                                <td>
+                                    <g:link controller="project" action="show" id="${project.id}" class="no-underline">${project.name}</g:link>
+                                </td>
+                                <td>${project.alias}</td>
+                                <td>${project.description}</td>
+                                <td>${project.isActive ? "✅" : "❌"}</td>
+                            </tr>
+                        </g:each>
+                        <!-- additional rows for each object in the "projectList" collection -->
+                        </tbody>
+                    </table>
                     <g:if test="${projectCount > params.int('max')}">
                     <div class="pagination">
                         <g:paginate total="${projectCount ?: 0}" />

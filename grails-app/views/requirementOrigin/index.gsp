@@ -1,3 +1,4 @@
+<%@ page import="rms.RequirementOrigin" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,8 +24,25 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:table collection="${requirementOriginList}" />
-
+                    <table>
+                        <thead>
+                        <tr>
+                            <g:sortableColumn property="name" title="Name" />
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <g:each in="${requirementOriginList as ArrayList<RequirementOrigin>}" var="requirementOrigin">
+                            <tr>
+                                <td>
+                                    <g:link controller="requirementOrigin" action="show" id="${requirementOrigin.id}" class="no-underline">
+                                        ${requirementOrigin.name}
+                                    </g:link>
+                                </td>
+                            </tr>
+                        </g:each>
+                        <!-- additional rows for each object in the "requirementOriginList" collection -->
+                        </tbody>
+                    </table>
                     <g:if test="${requirementOriginCount > params.int('max')}">
                     <div class="pagination">
                         <g:paginate total="${requirementOriginCount ?: 0}" />
