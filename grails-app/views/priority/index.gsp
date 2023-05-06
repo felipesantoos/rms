@@ -29,7 +29,6 @@
                         <tr>
                             <g:sortableColumn property="level" title="Level" />
                             <g:sortableColumn property="color" title="Color" />
-                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -44,10 +43,6 @@
                                     <span style="background: ${priority.color}; display: inline-block; border-radius: 2px; padding: 0 4px;">
                                         ${priority.color}
                                     </span>
-                                </td>
-                                <td>
-                                    <g:link class="no-underline" controller="priority" action="edit" resource="${priority}">✏️</g:link>
-                                    <g:link class="no-underline" controller="priority" action="delete" resource="${priority}">🗑️</g:link>
                                 </td>
                             </tr>
                         </g:each>

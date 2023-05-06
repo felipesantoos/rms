@@ -32,7 +32,20 @@
                     </g:hasErrors>
                     <g:form resource="${this.project}" method="POST">
                         <fieldset class="form">
-                            <f:all bean="project"/>
+                            <div class="fieldcontain required">
+                                <label for="name">Name<span class="required-indicator">*</span></label>
+                                <input type="text" name="name" value="" required="" id="name">
+                            </div><div class="fieldcontain required">
+                            <label for="alias">Alias<span class="required-indicator">*</span></label>
+                            <input type="text" name="alias" value="" required="" id="alias">
+                        </div><div class="fieldcontain">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                        </div><div class="fieldcontain">
+                            <label for="isActive">Is Active</label>
+                            <input type="hidden" name="_isActive">
+                            <input type="checkbox" name="isActive" id="isActive" checked>
+                        </div>
                         </fieldset>
                         <fieldset class="buttons">
                             <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

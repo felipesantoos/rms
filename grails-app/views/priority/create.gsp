@@ -5,6 +5,11 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'priority.label', default: 'Priority')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <script>
+            function updateColorText(color) {
+                document.getElementById("color-text").value = color;
+            }
+        </script>
     </head>
     <body>
     <div id="content" role="main">
@@ -35,8 +40,9 @@
                         <fieldset class="form">
                             <f:all bean="priority" except="color"/>
                             <div class="fieldcontain">
-                                <label>Color:</label>
-                                <color:color name="color" value="${priority.color}" />
+                                <label for="color">Color:</label>
+                                <color:color id="color" name="color" value="${priority.color ? priority.color : '#ffffff'}" onChange="updateColorText(this.value)" />
+                                <input id="color-text" name="color-text" type="text" value="${priority.color ? priority.color : '#ffffff'}" />
                             </div>
                         </fieldset>
                         <fieldset class="buttons">
@@ -48,4 +54,6 @@
         </div>
     </div>
     </body>
+<script>
+</script>
 </html>

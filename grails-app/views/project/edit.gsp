@@ -34,7 +34,23 @@
                     <g:form resource="${this.project}" method="PUT">
                         <g:hiddenField name="version" value="${this.project?.version}" />
                         <fieldset class="form">
-                            <f:all bean="project"/>
+                            <div class="fieldcontain required">
+                                <label for="name">Name<span class="required-indicator">*</span></label>
+                                <input type="text" name="name" value="${this.project.name}" required="" id="name">
+                            </div>
+                            <div class="fieldcontain required">
+                                <label for="alias">Alias<span class="required-indicator">*</span></label>
+                                <input type="text" name="alias" value="${this.project.alias}" required="" id="alias">
+                            </div>
+                            <div class="fieldcontain">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="10">${this.project.description}</textarea>
+                            </div>
+                            <div class="fieldcontain">
+                                <label for="isActive">Is Active</label>
+                                <input type="hidden" name="_isActive">
+                                <input type="checkbox" name="isActive" checked="${this.project.isActive}" id="isActive">
+                            </div>
                         </fieldset>
                         <fieldset class="buttons">
                             <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />

@@ -24,7 +24,24 @@
                     <g:if test="${flash.message}">
                     <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:display bean="project" />
+                    <ol class="property-list project">
+                        <li class="fieldcontain">
+                            <span id="name-label" class="property-label">Name</span>
+                            <div class="property-value" aria-labelledby="name-label">${this.project.name}</div>
+                        </li>
+                        <li class="fieldcontain">
+                            <span id="alias-label" class="property-label">Alias</span>
+                            <div class="property-value" aria-labelledby="alias-label">${this.project.alias}</div>
+                        </li>
+                        <li class="fieldcontain">
+                            <span id="description-label" class="property-label">Description</span>
+                            <div class="property-value" aria-labelledby="description-label">${this.project.description}</div>
+                        </li>
+                        <li class="fieldcontain">
+                            <span id="isActive-label" class="property-label">Is Active</span>
+                            <div class="property-value" aria-labelledby="isActive-label">${this.project.isActive ? "✅" : "❌"}</div>
+                        </li>
+                    </ol>
                     <g:form resource="${this.project}" method="DELETE">
                         <fieldset class="buttons">
                             <g:link class="edit" action="edit" resource="${this.project}"><g:message code="default.button.edit.label" default="Edit" /></g:link>

@@ -38,7 +38,12 @@ class RequirementController {
     }
 
     def create() {
-        respond new Requirement(params)
+        respond new Requirement(params), model: [
+            requirementTypeList: RequirementType.list(),
+            requirementOriginList: RequirementOrigin.list(),
+            priorityList: Priority.list(),
+            projectList: Project.list()
+        ]
     }
 
     def save(Requirement requirement) {

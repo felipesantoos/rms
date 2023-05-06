@@ -42,8 +42,8 @@
                             <f:all bean="priority" except="color"/>
                             <div class="fieldcontain">
                                 <label for="color">Color:</label>
-                                <color:color name="color" value="${priority.color}" id="color" onChange="updateColorText(this.value)" />
-                                <input name="color-text" type="text" value="${priority.color}" id="color-text" />
+                            <color:color id="color" name="color" value="${priority.color ? priority.color : '#ffffff'}" onChange="updateColorText(this.value)" />
+                            <input id="color-text" name="color-text" type="text" value="${priority.color ? priority.color : '#ffffff'}" />
                             </div>
                         </fieldset>
                         <fieldset class="buttons">
