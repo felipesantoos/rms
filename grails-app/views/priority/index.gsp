@@ -29,6 +29,7 @@
                         <tr>
                             <g:sortableColumn property="level" title="Level" />
                             <g:sortableColumn property="color" title="Color" />
+                            <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -44,9 +45,12 @@
                                         ${priority.color}
                                     </span>
                                 </td>
+                                <td>
+                                    <g:link class="no-underline" controller="priority" action="edit" resource="${priority}">✏️</g:link>
+                                    <g:link class="no-underline" controller="priority" action="delete" resource="${priority}">🗑️</g:link>
+                                </td>
                             </tr>
                         </g:each>
-                        <!-- additional rows for each object in the "priorityList" collection -->
                         </tbody>
                     </table>
 
