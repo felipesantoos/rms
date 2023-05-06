@@ -1,10 +1,21 @@
-<%@ page import="rms.Requirement" %>
+<%@ page import="rms.Priority; rms.Requirement" %>
+<%@ page import="rms.RequirementType" %>
+<%@ page import="rms.RequirementOrigin" %>
+<%@ page import="rms.Priority" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'requirement.label', default: 'Requirement')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
+        <style>
+            .form-of-filters {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 8px 0;
+            }
+        </style>
     </head>
     <body>
     <div id="content" role="main">
@@ -24,6 +35,37 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
+                    <div class="filter-form">
+                        <form action="${createLink(controller: 'requirement', action: 'index')}" method="GET" class="form-of-filters">
+                            <div>
+                                <label for="requirementType">Tipo do requisito:</label>
+                                <select name="requirementType" id="requirementType">
+                                    <option value="">Todos</option>
+                                    <g:each in="${requirementTypeList as ArrayList<RequirementType>}" var="requirementType">
+                                        <option value="${requirementType.name}">${requirementType.name}</option>
+                                    </g:each>
+                                </select>
+
+                                <label for="requirementOrigin">Origem do requisito:</label>
+                                <select name="requirementOrigin" id="requirementOrigin">
+                                    <option value="">Todas</option>
+                                    <g:each in="${requirementOriginList as ArrayList<RequirementOrigin>}" var="requirementOrigin">
+                                        <option value="${requirementOrigin.name}">${requirementOrigin.name}</option>
+                                    </g:each>
+                                </select>
+
+                                <label for="priority">Prioridade:</label>
+                                <select name="priority" id="priority">
+                                    <option value="">Todas</option>
+                                    <g:each in="${priorityList as ArrayList<Priority>}" var="priority">
+                                        <option value="${priority.level}">${priority.level}</option>
+                                    </g:each>
+                                </select>
+                            </div>
+
+                            <input type="submit" value="Filtrar" style="display: block;">
+                        </form>
+                    </div>
                     <table>
                         <thead>
                         <tr>
