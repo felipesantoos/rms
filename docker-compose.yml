@@ -1,0 +1,19 @@
+version: "3"
+services:
+  rms_database_service:
+    restart: always
+    build:
+      context: .
+      dockerfile: tools/docker/Dockerfile.mysql
+    container_name: rms_database_container
+    environment:
+      - MYSQL_DATABASE=rms_database
+      - MYSQL_USER=rms_user
+      - MYSQL_PASSWORD=rms_password
+      - MYSQL_ROOT_PASSWORD=root_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-database-data:/var/lib/mysql
+volumes:
+  mysql-database-data:
