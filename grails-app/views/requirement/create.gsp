@@ -41,15 +41,14 @@
                     </g:hasErrors>
                     <g:form resource="${this.requirement}" method="POST">
                         <fieldset class="form">
-                            <fieldset class="form">
-                                <div class="fieldcontain required">
-                                    <label for="title">Title<span class="required-indicator">*</span></label>
-                                    <input type="text" name="title" value="" required="" id="title">
-                                </div>
-                                <div class="fieldcontain">
-                                    <label for="description">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                                </div>
+                            <div class="fieldcontain required">
+                                <label for="title">Title<span class="required-indicator">*</span></label>
+                                <input type="text" name="title" value="" required="" id="title">
+                            </div>
+                            <div class="fieldcontain">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                            </div>
                             <div class="fieldcontain">
                                 <label for="userStory">User Story</label>
                                 <textarea name="userStory" id="userStory" cols="30" rows="10"></textarea>
@@ -81,16 +80,15 @@
                                     </g:each>
                                 </select>
                             </div>
-                                <div class="fieldcontain required">
-                                    <label for="project">Project<span class="required-indicator">*</span></label>
-                                    <select name="project.id" required="" id="project">
+                            <div class="fieldcontain required">
+                                <label for="project">Project<span class="required-indicator">*</span></label>
+                                <select name="project.id" required="" id="project">
                                     <option value="">-- Escolha um projeto --</option>
                                     <g:each in="${projectList}" var="project">
                                         <option value="${project.id}">${project.name}</option>
                                     </g:each>
                                 </select>
                             </div>
-                            </fieldset>
                         </fieldset>
                         <fieldset class="buttons">
                             <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

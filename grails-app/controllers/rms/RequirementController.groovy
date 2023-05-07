@@ -74,7 +74,12 @@ class RequirementController {
     }
 
     def edit(Long id) {
-        respond requirementService.get(id)
+        respond requirementService.get(id), model: [
+            requirementTypeList: RequirementType.list(),
+            requirementOriginList: RequirementOrigin.list(),
+            priorityList: Priority.list(),
+            projectList: Project.list()
+        ]
     }
 
     def update(Requirement requirement) {

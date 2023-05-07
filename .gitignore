@@ -10,4 +10,4 @@ out/
 .project
 .settings
 .classpath
-./tools/database/mysql/data
+tools/database/mysql/data/*

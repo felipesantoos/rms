@@ -86,8 +86,8 @@
                             <td>${requirement.type}</td>
                             <td>${requirement.origin}</td>
                             <td>
-                                <span style="background: ${requirement.priority.color}; display: inline-block; border-radius: 2px; padding: 0 4px;">
-                                    ${requirement.priority.level}
+                                <span style="background: ${requirement.priority?.color}; display: inline-block; border-radius: 2px; padding: 0 4px;">
+                                    ${requirement.priority?.level}
                                 </span>
                             </td>
                         </tr>

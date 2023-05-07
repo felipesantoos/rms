@@ -4,6 +4,15 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'project.label', default: 'Project')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
+        <style>
+            .form {
+                display: flex;
+                flex-direction: column;
+            }
+            input[type=text], textarea {
+                width: 50%;
+            }
+        </style>
     </head>
     <body>
     <div id="content" role="main">
